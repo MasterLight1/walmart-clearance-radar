@@ -4,13 +4,16 @@ Proveedor de datos de Amazon.
 Aquí irá la conexión con la fuente real.
 """
 
+from amazon_queries import QUERIES
+
 
 def buscar_productos_amazon():
 
     """
-    Devuelve productos encontrados.
+    Busca productos usando las consultas configuradas.
 
-    Formato esperado:
+    Formato esperado de salida:
+
     [
         {
             "titulo": "",
@@ -23,4 +26,14 @@ def buscar_productos_amazon():
     ]
     """
 
-    return []
+    productos = []
+
+
+    for query in QUERIES:
+
+        # Aquí irá la conexión real.
+        # Por ahora solo mostramos las búsquedas preparadas.
+        print(f"Buscando en Amazon: {query}")
+
+
+    return productos

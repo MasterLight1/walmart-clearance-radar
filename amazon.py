@@ -16,7 +16,7 @@ def buscar_ofertas_amazon():
             titulo="Ejemplo - Ninja Air Fryer",
             precio_actual=39.99,
             precio_anterior=129.99,
-            descuento, 75
+            descuento=75,
             url="https://www.amazon.com",
             categoria="electrodomesticos"
         )

@@ -10,7 +10,11 @@ def enviar_mensaje(texto):
         "chat_id": CHAT_ID,
         "text": texto
     }
-    requests.post(url, data=datos)
+
+    respuesta = requests.post(url, data=datos)
+
+    print("Respuesta de Telegram:")
+    print(respuesta.text)
 
 enviar_mensaje(
     "🚀 Walmart Clearance Radar iniciado correctamente."

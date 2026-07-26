@@ -1,21 +1,16 @@
-import os
-import requests
+from amazon import iniciar_amazon
+from notifier import enviar_telegram
 
-TOKEN = os.environ.get("TELEGRAM_TOKEN")
-CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
 
-def enviar_mensaje(texto):
-    url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
-    datos = {
-        "chat_id": CHAT_ID,
-        "text": texto
-    }
+def iniciar_radar():
 
-    respuesta = requests.post(url, data=datos)
+    enviar_telegram(
+        "🦅 DealHunter USA iniciado.\n\n"
+        "🔎 Buscando ofertas..."
+    )
 
-    print("Respuesta de Telegram:")
-    print(respuesta.text)
+    iniciar_amazon()
 
-enviar_mensaje(
-    "🚀 Walmart Clearance Radar iniciado correctamente."
-)
+
+if __name__ == "__main__":
+    iniciar_radar()

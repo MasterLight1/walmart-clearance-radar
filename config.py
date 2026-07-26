@@ -24,7 +24,11 @@ CATEGORIES = [
     "herramientas"
 ]
 
+# Modo de búsqueda:
+# "all" = todas las categorías
+# "favorites" = solo categorías seleccionadas
 
+SEARCH_MODE = "favorites"
 # Tiendas activas
 STORES = [
     "Amazon",

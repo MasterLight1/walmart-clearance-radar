@@ -1,4 +1,3 @@
-
 """
 Fuentes externas de ofertas.
 
@@ -10,6 +9,8 @@ Aquí conectaremos:
 """
 
 from models import Deal
+from amazon_provider import buscar_productos_amazon
+
 
 
 def crear_deal_amazon(
@@ -21,8 +22,8 @@ def crear_deal_amazon(
     categoria
 ):
     """
-    Convierte información de Amazon
-    en un objeto Deal.
+    Convierte información recibida
+    de Amazon en un objeto Deal.
     """
 
     return Deal(
@@ -39,28 +40,12 @@ def crear_deal_amazon(
 
 def obtener_ofertas_amazon():
 
-    """
-    Aquí llegará la conexión real.
-
-    Por ahora simulamos la estructura
-    que esperamos recibir.
-    """
-
-    datos = [
-        {
-            "titulo": "Ninja Air Fryer",
-            "precio_actual": 39.99,
-            "precio_anterior": 129.99,
-            "descuento": 70,
-            "url": "https://www.amazon.com",
-            "categoria": "electrodomesticos"
-        }
-    ]
-
+    productos = buscar_productos_amazon()
 
     ofertas = []
 
-    for producto in datos:
+
+    for producto in productos:
 
         oferta = crear_deal_amazon(
             titulo=producto["titulo"],

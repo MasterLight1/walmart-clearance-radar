@@ -1,13 +1,10 @@
 from models import Deal
 from filters import es_buen_deal
 from notifier import enviar_deal
+from history import ya_enviado, guardar_deal
 
 
 def buscar_ofertas_amazon():
-    """
-    Módulo inicial de Amazon.
-    Más adelante conectaremos aquí la fuente real de datos.
-    """
 
     ofertas = [
 
@@ -27,9 +24,15 @@ def buscar_ofertas_amazon():
     for oferta in ofertas:
 
         if es_buen_deal(oferta):
-            enviar_deal(oferta)
+
+            if not ya_enviado(oferta.titulo):
+
+                enviar_deal(oferta)
+
+                guardar_deal(oferta)
 
 
 
 def iniciar_amazon():
+
     buscar_ofertas_amazon()
